@@ -1,17 +1,21 @@
-*in progress*
+## Project Goal
 
-# Data
-* [Librispeach](https://www.openslr.org/12/) clean (train 360h, test, dev)
-* [Common voice](https://commonvoice.mozilla.org/en/datasets) en (2 681h validated, train, test, dev)
+The goal of this project was to create an LSTM-based speech-to-text model using the [Common Voice dataset for the English language](https://commonvoice.mozilla.org/en/datasets). The models were trained on selected groups of accents, with an additional aim of examining how the model learns different accents and whether this depends on the amount of available data for a given accent or on the specificity of the accent itself.
 
-# Resources
-* [Challenges and Limitations in Speech Recognition Technology: A Critical Review of Speech Signal Processing Algorithms, Tools and Systems](https://www.sciencedirect.com/org/science/article/pii/S1526149222002880)
-* [Audio Emotion Recognition based on Song modality using Conv1D vs Conv2D](http://pe.org.pl/articles/2024/7/12.pdf)
-* Docs [Tensorflow](https://www.tensorflow.org/), [librosa](https://librosa.org/doc/latest/index.html)
+To investigate this, three setups were used:
+- One model trained only on data labeled with the **“USA”** accent.
+- Another model trained on six different accent groups (balanced dataset with equal data per accent).
+- A third model trained on 17 accent groups with varying amounts of data.
 
-https://medium.com/analytics-vidhya/understanding-the-mel-spectrogram-fca2afa2ce53 \
-https://medium.com/towards-data-science/audio-deep-learning-made-simple-part-1-state-of-the-art-techniques-da1d3dff2504 \
-https://medium.com/towards-data-science/audio-deep-learning-made-simple-part-2-why-mel-spectrograms-perform-better-aad889a93505 \
-https://towardsdatascience.com/audio-deep-learning-made-simple-part-3-data-preparation-and-augmentation-24c6e1f6b52 \
-https://medium.com/towards-data-science/audio-deep-learning-made-simple-sound-classification-step-by-step-cebc936bbe5 \
-https://medium.com/towards-data-science/audio-deep-learning-made-simple-automatic-speech-recognition-asr-how-it-works-716cfce4c706
+## Findings
+
+The model trained exclusively on the **“USA”** accent learned more easily than when trained on mixed accents, and it also performed well on the **“Canada”** accent.  
+Results from the mixed-accent models indicate that while the amount of data matters, the characteristics of the accent are even more important.
+
+The easiest groups to learn were:
+- *Non-native speaker, German English*
+- *Northern Irish*
+- and, relatively well, *Canada*
+
+The most challenging group was:
+- *India and South Asia (India, Pakistan, Sri Lanka)*
