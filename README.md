@@ -7,6 +7,8 @@ To investigate this, three setups were used:
 - Another model trained on six different accent groups (balanced dataset with equal data per accent).
 - A third model trained on 17 accent groups with varying amounts of data.
 
+For the data representation, 13 Mel-Frequency Cepstral Coefficients (MFCCs) were used. The models were trained using Connectionist Temporal Classification (CTC) loss, with results evaluated using Character Error Rate (CER) and Word Error Rate (WER).
+
 ## Findings
 
 The model trained exclusively on the **“USA”** accent learned more easily than when trained on mixed accents, and it also performed well on the **“Canada”** accent.  
